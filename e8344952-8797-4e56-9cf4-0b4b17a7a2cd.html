@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Infinity Wars - Animated Trading Card Game</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.55">
+		<style>
+body {
+  background: #24282f;                                /* main background color in case of no image */
+  font-family: 'Arial';                               /* font arial which should be readable */
+  Height:100%;                                        /* set width to 100% also needed for background */
+  margin:0px;                                         /* hide any margins */
+  background-size: cover;                             /* size background image without distortion along width and height */
+  background-repeat: no-repeat;                       /* no background repeat */
+  Background-attachment:fixed;                        /* needed to make background image behave properly */
+  overflow-y:hidden;                                  /* no normal overflow, only our containers (details & description) will overflow or have scrollbar * /
+}
+ 
+html {
+  height:100%;                                        /* need to set this to 100% to make the background behave propertly */
+}
+
+.title h2 {
+  padding-left: 25px;                                 /* left padding */
+  color: #ccc;                                        /* text color */
+  margin: 0;                                          /* no margins */
+  background-color: black;                            /* black background */
+  vertical-align: middle;                             /* align vertical middle */
+  height: 48px;
+}
+
+.title {
+	width: 100%;                                      /* title container width 100% */
+	grid-column: 1 / span 3;                          /* column 1 but spans 3 */
+    grid-row: 1;                                      /* row 1 */
+	height: 48px;
+}
+.cards {                                              /* empty not used here */
+}
+
+.card {
+	display: grid;                                    /* container which is the grid */
+	grid-template-columns: min-content;               /* size columns to minimum content */
+	grid-template-rows: min-content min-content;      /* size rows to minimum content */
+	height: 100vh;                                    /* 100% viewport height */
+}
+
+.detailstitle{
+  grid-column: 1;                                     /* 1st column */
+  grid-row: 2;                                        /* 2nd row */
+  width: 350px;                                       /* fixed width set to same size as details */
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+}
+
+.details {
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+  color: #ccc;
+  grid-column: 1;                                      /* 1st column */
+  grid-row: 3;                                         /* 3rd row of grid */
+  width: 350px;                                        /* fixed width of details */
+  overflow-y: auto;                                     /* add vertical scrollbar if needed */
+  overflow-x:hidden;                                   /* don't overflow on x axis (no horz scrollbar) */
+ }
+ 
+.detailstitle h3,
+.descriptiontitle h3 {
+	border-bottom: 1px solid #ccc;                     /* titles of description details should have line under it */
+	padding: 5px;                                      /* add some padding */
+	color: #ccc;                                       /* text color of the titles */
+}
+
+.detailstable th, td {
+  border: 0px;                                         /* no borders on td, th elements */
+  color: #ccc;                                         /* details table text color */
+}
+
+.detailstable td {
+  text-align: left;                                    /* align text left */
+  vertical-align: top;                                 /* align top */
+}
+
+.detailstable {
+  width: 100%;                                         /* set to full width of details */
+  padding: 5px;                                        /* add some padding */
+}
+
+.descriptiontitle {
+	grid-column: 2;                                    /* column 2 of grid */
+	grid-row: 2;                                       /* row 2 of grid */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+
+.description {
+	color: #ccc;                                       /* text color */
+	grid-column: 2;                                    /* 2nd column of grid */
+	grid-row: 3;                                       /* 3rd row of grid */
+	overflow-y: auto;                                  /* overflow-y automatic (for adding scrollbar) */
+	overflow-x:hidden;                                 /* prevent horizontal scrollbar */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+.description img {
+	max-width: 100%;                                   /* make sure images don't overflow in width to prevent scrollbars */
+}
+
+.MenuButton {
+  border: none;                                        /* Remove borders */
+  outline: none;                                       /* Remove outline */
+  background-color: #888;                              /* Set a background color */
+  color: #000;                                         /* Text color */
+  padding: 5px;                                        /* Some padding */
+  border-radius: 4px;                                  /* Rounded corners, border */
+  font-size: 20px;                                     /* Increase font size */
+  cursor:pointer;                                         /* Add a mouse pointer on hover */
+  margin-right: 20px;                                  /* to have some space on right side before next element */
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+}
+
+.MenuButton:hover {
+  background-color: #777;                              /* Add a dark-grey background on hover */
+  color: #CCC;                                         /* Text color */
+}
+
+a {
+ text-decoration: none;                                /* no text underline in links */
+}
+a:link {
+  color: #CCC;                                         /* unvisited link color */
+}
+a:visited {
+  color: #CCC;                                         /* visited link color */
+}
+a:hover {
+  color: #EEE;                                         /* mouse over link color */
+  text-decoration: underline;                          /* add text underline in links when mouse over */
+}
+a:active {
+  color: #CCC;                                         /* selected link color */
+}
+
+                                                       /* scrollbars W3C standard that is currently Firefox-only */
+* {
+  scrollbar-width: thin;                               /* small width */
+  scrollbar-color: #888 transparent;                   /* trackbar color + transparant background */
+}
+
+                                                       /* scrollbars on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;                                         /* small width */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;                             /* background color track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #AAA;                              /* background */
+  border-radius: 20px;                                 /* rounded corner, border */
+  border: 3px solid #888;                              /* add the border */
+}
+
+		</style>
+	</head>
+	<body style="background-image: linear-gradient(to bottom, #24282f, rgba(100,100,100,0.73))">
+		<div class="cards">
+			<div class="card">
+				<div class="title">
+					<h2><button onclick="window.history.back()" class="MenuButton">Back</button> Infinity Wars - Animated Trading Card Game</h2>
+				</div>
+				<div class="detailstitle">
+				<H3>Details</H3>
+				</div>
+				<div class="details">
+					<div style="overflow: auto;">
+						<TABLE class="detailstable">
+							<col style="width:50%" />
+							<col style="width:50%" />							<TR>
+								<TD>Playtime</TD>
+								<TD>14h 17m 0s</TD>
+							</TR>
+							<TR>
+								<TD>Last Activity</TD>
+								<TD><a href="#quicklink-8/18/2014">8/18/2014</a> 20:03:42</TD>
+							</TR>
+							<TR>
+								<TD>Added</TD>
+								<TD><a href="#quicklink-7/9/2024">7/9/2024</a> 18:24:32</TD>
+							</TR>
+							<TR>
+								<TD>Modified</TD>
+								<TD><a href="#quicklink-7/9/2024">7/9/2024</a> 18:42:49</TD>
+							</TR>
+							<TR>
+								<TD>Completion Status</TD>
+								<TD><a href="#quicklink-Played">Played</a></TD>
+							</TR>
+							<TR>
+								<TD>Library</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_library_ascending_name_ascending.html#quicklink-Steam">Steam</a></TD>
+							</TR>
+							<TR>
+								<TD>Source</TD>
+								<TD><a href="default%20list%20text_source_ascending_name_ascending.html#quicklink-Steam">Steam</a></TD>
+							</TR>
+							<TR>
+								<TD>Platform</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_platform_ascending_name_ascending.html#quicklink-PC (Windows)">PC (Windows)</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Release Date</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_releasedate_descending_name_ascending.html#quicklink-8/5/2014">8/5/2014</a> </TD>
+							</TR>
+							<TR>
+								<TD>Community Score</TD>
+								<TD><a href="#quicklink-70">70</a></TD>
+							</TR>
+							<TR>
+								<TD>Critic Score</TD>
+								<TD><a href="#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>User Score</TD>
+								<TD><a href="#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Genre</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Card & Board Game">Card & Board Game</a><br/><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Indie">Indie</a><br/><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Strategy">Strategy</a><br/><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Turn-based strategy (TBS)">Turn-based strategy (TBS)</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Developer</TD>
+								<TD><a href="#quicklink-Lightmare Studios">Lightmare Studios</a><br/><a href="#quicklink-Yodo1 Games">Yodo1 Games</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Publisher</TD>
+								<TD><a href="#quicklink-Lightmare Studios">Lightmare Studios</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Feature</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_feature_ascending_name_ascending.html#quicklink-Massively Multiplayer Online (MMO)">Massively Multiplayer Online (MMO)</a><br/><a href="default%20list%20text%20combobox%20quicklinks_feature_ascending_name_ascending.html#quicklink-Multiplayer">Multiplayer</a><br/><a href="default%20list%20text%20combobox%20quicklinks_feature_ascending_name_ascending.html#quicklink-Single Player">Single Player</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Links</TD>
+								<TD><a href="https://store.steampowered.com/app/257730" target="_blank">Steam</a><br/><a href="http://www.infinitywarsgame.com" target="_blank">Official</a><br/><a href="https://www.twitch.tv/directory/game/Infinity%20Wars" target="_blank">Twitch</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Tag</TD>
+								<TD></TD>
+							</TR>
+						</TABLE>
+					</div>
+				</div>
+				<div class="descriptiontitle">
+					<H3>Description</H3>
+				</div>
+				<div class="description">
+					<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257730/extras/IWC_Cardspread_-_600_Steam.gif?t=1711172468" /><br><br><strong>Infinity Wars is a unique trading card game</strong> that blends rich lore and artwork with innovative gameplay mechanics that are both simple to learn and hard to master. With fully animated artwork, eight unique factions to play and master, and <strong>constant updates as the game is actively developed</strong>, Infinity Wars Classic is an experience you will only find here!<br><br><strong><u>Do You Hate Pay To Win?</u></strong><br><br><i>We despise it.</i> So much so that we've completely revamped our monetisation model to ensure <strong>every new and returning player has free access to every card we've ever made as well as any upcoming sets</strong> for Infinity Wars Classic.<br><br><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257730/extras/Compare_600_.png?t=1711172468" /><br><br><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257730/extras/2_Features.gif?t=1711172468" /><br><br><ul class="bb_ul"><li>Death to Pay to Win - Never have to pay or grind for a card, ever again! Every player has free access to every card we've ever made and will ever make. Any player already heavily financially invested in another card game, can jump into Infinity Wars Classic (IWC) right now, and not be destroyed by veteran players, just because they haven’t collected enough cards to be competitive.<br></li><li><strong>Unrivaled Strategic Depth</strong> - Outmaneuver your opponents with defensive and offensive posturing. With the simultaneous-turn mechanic, foresight and cunning will prove the difference between victory and defeat.<br></li><li><strong>Fully Animated Artwork</strong> - Breathe life into your trading card experience with 3D battlefields and over 800 unlockable beautifully animated cards. <br></li><li><strong>Custom Card Artwork &amp; Name Editor</strong> - Rename, and reskin any card you want to in the game to be literally whatever you want. The game will be personalised in a way you’ve never been able to before, simply by selecting an image from your computer. <br></li><li><strong>Player First Active Dev Team</strong> - With regular surveys, we plan our roadmap according to what our players want. Our team is working closest with our most passionate players over on Discord, where anyone and everyone is invited to share their experiences and shape the game’s development, design and future! Join us now using this link: <a href="https://steamcommunity.com/linkfilter/?u=http%3A%2F%2Fwww.discord.gg%2Fy8KGxk4" target="_blank" rel=" noopener"  >http://www.discord.gg/y8KGxk4</a></li></ul><ul class="bb_ul"><li><strong>Casual, Training, 3 Tutorials &amp; Private Matches</strong> - With many modes already available including a brand new replay mode, free Prestige Pass, daily quests, leaderboards, daily login unlocks and more, Infinity Wars Classic is ready for IW fans and card gaming veterans alike.<br></li><li><strong>A Complete Free to play Experience</strong> - While our game was previously in Pre-Alpha and required Patreon access to play the full game, we are now free to play for all users, including a prestige pass (free battle pass) and new sets funded by fans making it free for everyone being made regularly as of August 2022. </li></ul><br><br>The Following features existed in the original Infinity Wars 1, and are confirmed to be in production for Infinity Wars Classic.<br><ul class="bb_ul"><li><strong>Rich PvP Game Modes</strong> - Craft your deck and take to the battlefield in ranked; draft decks and join Rift Runs to score epics rewards; battle opponents with curated decks to explore new cards and ensure a level playing field for newer PvP players.<br></li><li><strong>Unlimited Card Trading</strong> - Build your decks with precision and engage the community with an unlimited card trading system. There is also the aim to let players put their cards on the Steam Marketplace, however, this requires more work to confirm it as possible.<br></li><li><strong>Other Features Upon Voting</strong> - We need to find the balance between bringing back old features and working on new ones as voted on by the players. If you want to see a previous feature be brought back and improved upon, jump in and have your say!</li></ul><br><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257730/extras/3_Living_Roadmap.gif?t=1711172468" /><br><br><br><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257730/extras/Road_Map_600__order_change.png?t=1711172468" /><br><br><br><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257730/extras/4_What_Is_IW_Classic.gif?t=1711172468" /><br><br>In 2014, Infinity Wars released on Steam, seeing instant popularity due to the unique structure of simultaneous turns never having been tackled by a TCG as expertly before. The game was supported for many years with 6 full brand new sets of cards being released over time. However, the developers Lightmare Studios were a very small, young studio. There were a lot of industry-standard practices that the team just didn’t know about. Zero comments were left on the code, little to no documentation on coding standards was made, and each and every card was hard coded with its effects, creating massive amounts of redundancy, and what experts would refer to as “spaghetti code”. This led to increasingly severe technical difficulties, and the team was tunnel visioned on chasing features and new set releases, exacerbating problems.<br><br>With no way to fix the problem, we signed our game over to our Publisher to let them handle it, however, the problems were much too severe to be fixed even by them, and even small bug fixes became monumental tasks. It wasn’t long before the game was left as it was, with the servers being hosted, but no significant support. And in 2019, Lightmare took back the servers to prevent them from being shut down. Despite the game significantly draining resources, it was kept online for a further year as a service to the few players who remained, before we finally had to put the servers on ice.<br><br>Shortly after, we finally broke the news that we were working on Infinity Wars Classic - a technical remaster built from the ground up using the Infinity Card Engine (born through Infinity Heroes’ early development) to be a much more technically functional version of the game our fans had enjoyed playing for years. In October 2020, we released our Pre-alpha version 0.01 of IWC, which featured only 49 cards. As of September 2022, we’re now in public free access, but still in active development towards a fully remastered product, and currently has all Infinity Wars 1 cards (not including 3rd party ones) and the first 60 from the upcoming Intrigue set, due for release on the 10th of September 2022. It features a brand new deckbuilder, and in the backend a module-based card creation system, allowing for far more frequent content. <br><br>We want to do right by our oldest players, so one of the biggest things I want to highlight is that players from Infinity Wars 1’s time can import their IW1 collections into IWC. That means your old collections you spent time and money on are going to be yours eventually. This is currently available in game, and you can make the request from the profile page. Using the same email as your Infinity Wars 1 account will minimise wait time on porting your collection over. <br><br><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257730/extras/5_IH_IW2.gif?t=1711172468" /><br><br>Infinity Heroes is our cross-platform sister product to Infinity Wars, with a much more simplified and streamlined gameplay style. Players can choose any three decks from over 25 premade hero decks to form their squad, making it easier for casual gamers to enjoy simultaneous turn strategy card games without diving into the deep end of an immensely large skill cap game like Infinity Wars. Currently in Open Beta it will eventually release as a crossplay title across Mobile and Steam, and will work with all Infinity accounts, meaning your items, currencies and progress is tracked between all of our games. Please note, that due to our players having their say, we've focussed our primary efforts on making Infinity Wars Classic the best it can be, so this product will only be minorly updated until a later date.<br><br>You can still jump into the game now, for a faster, more focused Infinity card experience. If you want to make decks from scratch and have greater depth and options, Infinity Wars Classic is the better game for you.<br><br><a href="https://store.steampowered.com/app/892310/Infinity_Heroes/" target="_blank" rel=""  id="dynamiclink_1" >https://store.steampowered.com/app/892310/Infinity_Heroes/</a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
